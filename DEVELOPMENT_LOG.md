@@ -33,89 +33,93 @@ Document your development process as you work on the assignment. Add entries sho
 ## Your Development Log:
 
 ### Entry 1 - [Date and Time]
-**What I did**: 
+**What I did**: Set up project and opened files.
 
-**Details**: 
+**Details**: Reviewed assignment requirements.
 
-**Challenges**: 
+**Challenges**: Understanding scheduler logic.
 
-**Solution**: 
 
-**Time spent**: 
+**Solution**: Read instructions again.
+
+**Time spent**: 1 hour
 
 ---
 
 ### Entry 2 - [Date and Time]
-**What I did**: 
+**What I did**: Started SchedulerSimulation.java.
 
-**Details**: 
+**Details**: Created basic structure.
 
-**Challenges**: 
+**Challenges**: Choosing scheduling method.
 
-**Solution**: 
+**Solution**: Checked example code.
 
-**Time spent**: 
+**Time spent**: 1.5 hours
 
 ---
 
 ### Entry 3 - [Date and Time]
-**What I did**: 
+**What I did**: Implemented scheduling logic.
 
-**Details**: 
+**Details**: Added process handling.
 
-**Challenges**: 
+**Challenges**: Logic errors appeared.
 
-**Solution**: 
+**Solution**: Debugged step by step.
 
-**Time spent**: 
+
+**Time spent**: 1.5 hours
 
 ---
 
 ### Entry 4 - [Date and Time]
-**What I did**: 
+**What I did**: Tested the program.
 
-**Details**: 
+**Details**: Ran different cases.
 
-**Challenges**: 
+**Challenges**: Output mismatch.
 
-**Solution**: 
 
-**Time spent**: 
+**Solution**: Fixed calculation issue
+
+**Time spent**: 1 hour
 
 ---
 
 ### Entry 5 - [Date and Time]
-**What I did**: 
+**What I did**: Updated README and answers.
 
-**Details**: 
+**Details**: Explained implementation steps.
 
-**Challenges**: 
+**Challenges**: Formatting markdown.
 
-**Solution**: 
+**Solution**: Used examples.
 
-**Time spent**: 
+**Time spent**: 45 minutes
 
 ---
 
 ### Entry 6 - [Optional - Date and Time]
-**What I did**: 
+**What I did**: Final review before submission.
 
-**Details**: 
+**Details**: Checked files and errors.
 
-**Challenges**: 
+**Challenges**: Minor mistakes.
 
-**Solution**: 
+**Solution**: Corrected them
 
-**Time spent**: 
+**Time spent**:  1 hour
 
 ---
 
 ## Summary
 
 **Total time spent on assignment**: [X hours]
-
+6:45 hours
 **Most challenging part**: 
-
+Implementing scheduling logic
 **Most interesting learning**: 
-
+Understanding CPU scheduling
 **What I would do differently next time**: 
+Start earlier and test more often 
