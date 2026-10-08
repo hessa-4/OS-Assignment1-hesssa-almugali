@@ -34,7 +34,7 @@ class Process implements Runnable {
     private int remainingTime; // Time left for the process to finish its execution
     
     // FEATURE 1: Add priority field (integer 1-10, where 10 is highest)
-    private int priority; // Priority of the process (1-5, 5 being highest)
+   private int priority; // Priority of the process (1-10, 10 being highest)
     
     // FEATURE 3: Fields to track waiting time
     private long creationTime; // Time when process was created (in milliseconds)
@@ -447,11 +447,11 @@ String.format("%-18s", "Turnaround Time") +
 String turnaroundStr = turnaroundTime + "ms";
             System.out.println(Colors.BOLD + Colors.BRIGHT_CYAN + "║" + Colors.RESET + 
                               "  " + Colors.BRIGHT_CYAN + 
-                              String.format("%-12s", process.getName()) + Colors.RESET +
+                              String.format("%-10s", process.getName()) + Colors.RESET +
                               Colors.YELLOW + 
-                              String.format("%-15s", process.getBurstTime() + "ms") + Colors.RESET +
+                              String.format("%-12s", process.getBurstTime() + "ms") + Colors.RESET +
                               Colors.MAGENTA + 
-                              String.format("%-15s", process.getPriority()) + Colors.RESET +
+                              String.format("%-10s", process.getPriority()) + Colors.RESET +
                               Colors.BRIGHT_GREEN +
                                String.format("%-15s", waitTimeStr) + Colors.RESET +
 String.format("%-18s", turnaroundStr) + Colors.RESET +
