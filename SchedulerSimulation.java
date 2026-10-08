@@ -188,7 +188,10 @@ class Process implements Runnable {
     public void setLastReadyTime(long time) {
         this.lastReadyTime = time;
     }
-
+// FEATURE 3: Turnaround time = waiting time + burst time
+public long getTurnaroundTime() {
+    return totalWaitingTime + burstTime;
+}
     // Check if the process has finished (i.e., no remaining time)
     public boolean isFinished() {
         return remainingTime <= 0;
@@ -421,10 +424,11 @@ public class SchedulerSimulation {
         // Print column headers
         System.out.println(Colors.BOLD + Colors.BRIGHT_CYAN + "║" + Colors.RESET + 
                           "  " + Colors.BOLD + Colors.BRIGHT_WHITE + 
-                          String.format("%-12s", "Process") + 
-                          String.format("%-15s", "Burst Time") + 
-                          String.format("%-15s", "Priority") + 
-                          String.format("%-20s", "Waiting Time") + 
+                         String.format("%-10s", "Process") +
+String.format("%-12s", "Burst Time") +
+String.format("%-10s", "Priority") +
+String.format("%-15s", "Waiting Time") +
+String.format("%-18s", "Turnaround Time") + 
                           Colors.RESET + "          " +
                           Colors.BOLD + Colors.BRIGHT_CYAN + "║" + Colors.RESET);
         
@@ -434,11 +438,13 @@ public class SchedulerSimulation {
         
         // Calculate total waiting time for average calculation
         long totalWaitingTime = 0;
+       long totalTurnaroundTime = 0;
         
         // Print each process's information in the table
         for (Process process : completedProcesses) {
             String waitTimeStr = process.getTotalWaitingTime() + "ms";
-            
+            long turnaroundTime = process.getTurnaroundTime();
+String turnaroundStr = turnaroundTime + "ms";
             System.out.println(Colors.BOLD + Colors.BRIGHT_CYAN + "║" + Colors.RESET + 
                               "  " + Colors.BRIGHT_CYAN + 
                               String.format("%-12s", process.getName()) + Colors.RESET +
@@ -446,12 +452,14 @@ public class SchedulerSimulation {
                               String.format("%-15s", process.getBurstTime() + "ms") + Colors.RESET +
                               Colors.MAGENTA + 
                               String.format("%-15s", process.getPriority()) + Colors.RESET +
-                              Colors.BRIGHT_GREEN + 
-                              String.format("%-20s", waitTimeStr) + Colors.RESET +
+                              Colors.BRIGHT_GREEN +
+                               String.format("%-15s", waitTimeStr) + Colors.RESET +
+String.format("%-18s", turnaroundStr) + Colors.RESET +
                               "          " +
                               Colors.BOLD + Colors.BRIGHT_CYAN + "║" + Colors.RESET);
             
             totalWaitingTime += process.getTotalWaitingTime();
+           totalTurnaroundTime += turnaroundTime;
         }
         
         // Print separator before average
@@ -460,14 +468,16 @@ public class SchedulerSimulation {
                           Colors.RESET);
         
         // Calculate and display average waiting time
-        double avgWaitingTime = (double) totalWaitingTime / completedProcesses.size();
-        
-        System.out.println(Colors.BOLD + Colors.BRIGHT_CYAN + "║" + Colors.RESET + 
-                          "  " + Colors.BOLD + Colors.BRIGHT_YELLOW + 
-                          String.format("%-42s", "Average Waiting Time:") + 
-                          String.format("%-20s", String.format("%.2fms", avgWaitingTime)) + 
-                          Colors.RESET + "          " +
-                          Colors.BOLD + Colors.BRIGHT_CYAN + "║" + Colors.RESET);
+       double avgWaitingTime = (double) totalWaitingTime / completedProcesses.size();
+double avgTurnaroundTime = (double) totalTurnaroundTime / completedProcesses.size();
+
+System.out.println(Colors.BOLD + Colors.BRIGHT_CYAN + "║" + Colors.RESET +
+    "  " + Colors.BOLD + Colors.BRIGHT_YELLOW +
+    String.format("%-47s", "Averages:") +
+    String.format("%-15s", String.format("%.2fms", avgWaitingTime)) +
+    String.format("%-18s", String.format("%.2fms", avgTurnaroundTime)) +
+    Colors.RESET + "   " +
+    Colors.BOLD + Colors.BRIGHT_CYAN + "║" + Colors.RESET);
         
         System.out.println(Colors.BOLD + Colors.BRIGHT_CYAN + 
                           "╚════════════════════════════════════════════════════════════════════════════════╝" + 
