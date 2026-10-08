@@ -33,7 +33,7 @@ class Process implements Runnable {
     private int timeQuantum; // Time slice (time quantum) allowed per CPU access (in milliseconds)
     private int remainingTime; // Time left for the process to finish its execution
     
-    // FEATURE 1: Add priority field (integer 1-5, where 5 is highest)
+    // FEATURE 1: Add priority field (integer 1-10, where 10 is highest)
     private int priority; // Priority of the process (1-5, 5 being highest)
     
     // FEATURE 3: Fields to track waiting time
@@ -256,8 +256,8 @@ public class SchedulerSimulation {
             // Random burst time for each process between timeQuantum/2 and 3*timeQuantum
             int burstTime = timeQuantum/2 + random.nextInt(2 * timeQuantum + 1);
             
-            // FEATURE 1: Generate random priority between 1 and 5 (5 is highest)
-            int priority = 1 + random.nextInt(5); // Random number between 1 and 5
+            // FEATURE 1: Generate random priority between 1 and 10 (10 is highest)
+            int priority = 1 + random.nextInt(10); // Random number between 1 and 10
             
             // Create a new process object with a unique name, burst time, time quantum, and priority
             // FEATURE 1: Added priority parameter
